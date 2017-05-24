@@ -43,10 +43,11 @@ public class FactorialTest {
         BigInteger result = factorial.products(1000000, 200);
         assertThat(result.toString().substring(0, 10), is("4876116127"));
 
-        System.out.println(String.format("Consume %d milliseconds ", System.currentTimeMillis() - startTime));  //Consume 15513 milliseconds
-         /*
+        /*
+        Consume 15513 milliseconds
         if we execute factorial.products( 10000000,200) , it will cost 171288 milliseconds, it verifies that time complexity is O(NC)
          */
+        System.out.println(String.format("Consume %d milliseconds ", System.currentTimeMillis() - startTime));  //
     }
 
     @Test
@@ -68,7 +69,11 @@ public class FactorialTest {
                             return sum1.add(sum2);
                         });
         System.out.println(result);
-        System.out.println(String.format("Consume %d milliseconds ", System.currentTimeMillis() - startTime)); // Consume 102073 milliseconds
+
+        /*
+         Consume 102073 milliseconds. Much better than execute factorial.products( 10000000,200) directly which costs 171288 milliseconds
+         */
+        System.out.println(String.format("Consume %d milliseconds ", System.currentTimeMillis() - startTime));
     }
 
     @Test

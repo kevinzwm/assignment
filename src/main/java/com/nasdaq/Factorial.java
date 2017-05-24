@@ -2,9 +2,7 @@ package com.nasdaq;
 
 import java.math.BigInteger;
 
-
 public class Factorial
-
 {
     private int startPoint;
     private int endPoint;
@@ -52,6 +50,18 @@ public class Factorial
 
     }
 
+    BigInteger products(int n, int c) throws Exception {
+        BigInteger sum = BigInteger.ZERO;
+        for (int i = 1; i <= n; i++) {
+            if (i <= c) {
+                sum = sum.add(factorial(i - 1));
+            } else {
+                sum = sum.add(factorial(i, c));
+            }
+        }
+        return sum;
+    }
+
     /*
         * this method can be used with multi-thread solution if CPU is multi-cores. for example products(10 000 000, 200)
         * can be divided into below sub tasks
@@ -72,15 +82,5 @@ public class Factorial
         return sum;
     }
 
-    BigInteger products(int n, int c) throws Exception {
-        BigInteger sum = BigInteger.ZERO;
-        for (int i = 1; i <= n; i++) {
-            if (i <= c) {
-                sum = sum.add(factorial(i - 1));
-            } else {
-                sum = sum.add(factorial(i, c));
-            }
-        }
-        return sum;
-    }
+
 }
